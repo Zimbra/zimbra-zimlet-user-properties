@@ -1,6 +1,6 @@
 import { createElement, Component } from 'preact';
 import style from './style';
-import { gql } from '@apollo/client';
+import { useApolloClient, gql } from '@apollo/client';
 import { ModalDialog } from '@zimbra-client/components';
 
 // On the server you can run the following command to get the Zimlet User Properties:
@@ -37,8 +37,8 @@ export default class Display extends Component {
                     } 
                 }`;
 
-            //https://www.freecodecamp.org/news/react-apollo-client-2020-cheatsheet/#usingtheclientdirectly
-            this.context.client.query({
+            const client = useApolloClient();
+            client.query({
                 query: this.zimletProps
             })
                 .then((response) => {
@@ -99,7 +99,8 @@ export default class Display extends Component {
 
         //Use the Apollo client directly to run the query, save prop1 on the server
         //https://stackoverflow.com/questions/56417197/apollo-mutations-without-react-mutation-component
-        this.context.client.mutate({
+        const client = useApolloClient();
+        client.mutate({
             mutation: myMutationGql,
             variables: {
                 props: [
