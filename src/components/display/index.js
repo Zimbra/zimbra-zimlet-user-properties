@@ -37,7 +37,7 @@ export default class Display extends Component {
                     } 
                 }`;
 
-            const client = useApolloClient();
+            const client = this.zimletContext.getApolloClient();
             client.query({
                 query: this.zimletProps
             })
@@ -99,7 +99,7 @@ export default class Display extends Component {
 
         //Use the Apollo client directly to run the query, save prop1 on the server
         //https://stackoverflow.com/questions/56417197/apollo-mutations-without-react-mutation-component
-        const client = useApolloClient();
+        const client = this.zimletContext.getApolloClient();
         client.mutate({
             mutation: myMutationGql,
             variables: {
