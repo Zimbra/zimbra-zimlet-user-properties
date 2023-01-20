@@ -131,9 +131,8 @@ export default class Display extends Component {
             >
                 <div class="zimbra-client_modal-dialog_inner"><header class="zimbra-client_modal-dialog_header"><h2>Test Zimlet Properties</h2><button onClick={this.handleClose} aria-label="Close" class="zimbra-client_close-button_close zimbra-client_modal-dialog_actionButton"><span role="img" class="zimbra-icon zimbra-icon-close blocks_icon_md"></span></button></header>
                     <div class="zimbra-client_modal-dialog_content zimbra-client_language-modal_languageModalContent">
-                        <lable for='prop1'>prop1:</lable><input name='prop1' id='prop1' value={this.zimletContext.zimletProperties.get('prop1') || null}></input>
+                        <lable for='prop1'>prop1:</lable><input name='prop1' id='prop1' value={this.zimletContext.zimletProperties.get('prop1') || null}></input><br/><button type="button" onClick={this.handleSave} class="blocks_button_button blocks_button_regular">OK</button>
                     </div>
-                    <footer class="zimbra-client_modal-dialog_footer"><button type="button" onClick={this.handleSave} class="blocks_button_button blocks_button_regular">OK</button></footer>
                 </div>
             </ModalDialog>
         );
